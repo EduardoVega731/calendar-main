@@ -1,0 +1,99 @@
+.LoginCtrl {
+    position: fixed;
+    top: 10;
+    right: 0;
+    width: 200px;
+    text-align: right;
+    padding-right: 2px;
+}
+
+.LoginYes,
+.LoginNo {
+    display: none;
+}
+
+.LoginWait {
+    display: block;
+}
+
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #213ebd;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: rgb(255, 145, 1);
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+  padding-right: 30px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: rgb(255, 153, 0);
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: rgb(112, 112, 112);
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: rgb(255, 136, 0);
+}
+
+/* Highlight the "current" day */
+.days li .currentDay {
+  padding: 5px;
+  background: #1d1abc;
+  color: white 
+}
+
+.days li:hover{
+    color: white;
+    background: black;
+    width: 13.6%;
+    margin-bottom: 5px;
+}

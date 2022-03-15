@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="LoginCtrl">
+        <div class="LoginWait">Please wait...</div>
+        <div class="LoginNo">
+            <button onclick="myFirebase.googleLogin()">Login With Google</button>
+            <button onclick="myFirebase.githubLogin()">Login with Github</button>
+        </div>
+        <div class="LoginYes">
+            <div class="Username"></div>
+            <button onclick="myFirebase.logout()">Logout</button>
+        </div>
+    </div>
+
+
+    <div class="LoginWait">
+        <h2>Please wait...</h2>
+    </div>
+    <div class="LoginNo">
+        <h2>Please log in...</h2>
+    </div>
+    <div class="LoginYes">
+        <!-- contents below-->
+        <div class="month">
+            <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li id = "month"><br>
+                <li id="year"></li>
+            </ul>
+        </div>
+        <ul class="weekdays">
+            <li>Sunday</li>
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+            <li>Thursday</li>
+            <li>Friday</li>
+            <li>Saturday</li>
+        </ul>
+        <ul class="days">
+            <li></li>
+            <li></li>
+            <li onclick="display()">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li><span class="currentDay">15</span></li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>31</li>
+        </ul>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+        <!-- The core firebase JS SDK is always required and must be loaded first -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+        <!-- for DB -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyB8WI85KW_rODCfiiNu2fgnQDWY6Q3wKdA",
+                authDomain: "calendar-cs335.firebaseapp.com",
+                projectId: "calendar-cs335",
+                storageBucket: "calendar-cs335.appspot.com",
+                messagingSenderId: "981940042677",
+                appId: "1:981940042677:web:a468de3cdf42ca39f1f7fc"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+        <script src="myFirebase.js"></script>
+        <!-- for DB -->
+        <!-- <script src="myFirebaseDB.js"></script> -->
+        <script src="calendar.js"></script>
+
+</body>
+
+</html>
