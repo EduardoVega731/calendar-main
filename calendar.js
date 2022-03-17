@@ -34,9 +34,4 @@ function setMonthYear() {
     currentDay.innerHTML = day;
 }
 
-function display(){
-    prompt("Add task")
-}
-
-
 this.document.onload = setMonthYear();

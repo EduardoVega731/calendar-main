@@ -35,10 +35,11 @@
             <ul>
                 <li class="prev">&#10094;</li>
                 <li class="next">&#10095;</li>
-                <li id = "month"><br>
+                <li id="month"><br>
                 <li id="year"></li>
             </ul>
         </div>
+        </header>
         <ul class="weekdays">
             <li>Sunday</li>
             <li>Monday</li>
@@ -48,10 +49,9 @@
             <li>Friday</li>
             <li>Saturday</li>
         </ul>
+
         <ul class="days">
-            <li></li>
-            <li></li>
-            <li onclick="display()">1</li>
+            <li onclick="openForm()"> 1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>
@@ -83,38 +83,51 @@
             <li>29</li>
             <li>31</li>
         </ul>
-        <ul>
-            <li></li>
-        </ul>
+        
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Add Tasks</h1>
+          
+              <label for="task"><b>Task</b></label>
+              <input type="text" required>
+          
+              <button type="submit" class="btn"onclick="addItem()">Add</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
     </div>
 
-        <!-- The core firebase JS SDK is always required and must be loaded first -->
-        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-        <!-- for DB -->
-        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
 
-        <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyB8WI85KW_rODCfiiNu2fgnQDWY6Q3wKdA",
-                authDomain: "calendar-cs335.firebaseapp.com",
-                projectId: "calendar-cs335",
-                storageBucket: "calendar-cs335.appspot.com",
-                messagingSenderId: "981940042677",
-                appId: "1:981940042677:web:a468de3cdf42ca39f1f7fc"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-        </script>
+    <!-- The core firebase JS SDK is always required and must be loaded first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <!-- for DB -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
 
-        <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB8WI85KW_rODCfiiNu2fgnQDWY6Q3wKdA",
+            authDomain: "calendar-cs335.firebaseapp.com",
+            projectId: "calendar-cs335",
+            storageBucket: "calendar-cs335.appspot.com",
+            messagingSenderId: "981940042677",
+            appId: "1:981940042677:web:a468de3cdf42ca39f1f7fc"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
-        <script src="myFirebase.js"></script>
-        <!-- for DB -->
-        <!-- <script src="myFirebaseDB.js"></script> -->
-        <script src="calendar.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
 
+    <script src="myFirebase.js"></script>
+    <!-- for DB -->
+    <!-- <script src="myFirebaseDB.js"></script> -->
+    <script src="calendar.js"></script>
+    <script src="note.js"></script>
+    <script>
+        var myFirebase = new MyFirebase(user => setupUser(user));
+    </script>
 </body>
 
 </html>
