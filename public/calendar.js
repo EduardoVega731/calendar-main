@@ -44,16 +44,6 @@ function renderCalendar() {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay
     let start = new Date(year, month).getDay(); // for March... 2 / Tuesday
     console.log(start);
-
-
-    let numOfDays = 32 - new Date(year, month, 32).getDate();
-    console.log(numOfDays)
-
-    for (i=0; i < 6; i++){
-        document.createElement('li');
-    }
-
-
 }
 
 
