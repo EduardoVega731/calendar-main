@@ -5,12 +5,15 @@ const monthNames = [
     "December"
 ];
 
+const daysOfWeek = [
+    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+    "Friday", "Saturday"
+]
 
 
 // https://www.w3schools.com/js/js_date_methods.asp
 
 const dte = new Date();
-// document.write("The current month is " + monthNames[d.getMonth()]);
 
 const day = dte.getDate();
 const month = dte.getMonth();
@@ -27,7 +30,7 @@ function setMonthYear() {
     // console.log(day);
 
     currentMonth = document.getElementById("month");
-    currentMonth.innerHTML = monthNames[month];
+    currentMonth.innerHTML = monthNames[`${month}`];
 
     currentYear = document.getElementById("year");
     currentYear.innerHTML = year;
@@ -35,5 +38,24 @@ function setMonthYear() {
     currentDay = document.getElementsByClassName("currentDay");
     currentDay.innerHTML = day;
 }
+
+function renderCalendar() {
+    // finds where the first day of month starts on calendar position
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay
+    let start = new Date(year, month).getDay(); // for March... 2 / Tuesday
+    console.log(start);
+
+
+    let numOfDays = 32 - new Date(year, month, 32).getDate();
+    console.log(numOfDays)
+
+    for (i=0; i < 6; i++){
+        document.createElement('li');
+    }
+
+
+}
+
+
 
 this.document.onload = setMonthYear();
