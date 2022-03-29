@@ -51,8 +51,8 @@
         </ul>
 
         <ul class="days">
-            <li onclick="openForm()"> 1</li>
-            <li onclick="openForm()"> 2</li>
+            <li onclick="openTask(1), openForm()"> 1 </li>
+            <li onclick="openTask(2), openForm()"> 2 </li>
             <li onclick="openForm()"> 3</li>
             <li onclick="openForm()"> 4</li>
             <li onclick="openForm()"> 5</li>
@@ -67,7 +67,7 @@
             <li onclick="openForm()"> 14</li>
             <li onclick="openForm()"> 15</li>
             <li onclick="openForm()"> 16</li>
-            <li><span class="currentDay">17</span></li>
+            <li onclick="openForm()"> 17</li>
             <li onclick="openForm()"> 18</li>
             <li onclick="openForm()"> 19</li>
             <li onclick="openForm()"> 20</li>
@@ -80,22 +80,34 @@
             <li onclick="openForm()"> 26</li>
             <li onclick="openForm()"> 27</li>
             <li onclick="openForm()"> 28</li>
-            <li onclick="openForm()"> 29</li>
+            <li onclick="openForm()"> <span class="currentDay">29</span></li>
             <li onclick="openForm()"> 30</li>
             <li onclick="openForm()"> 31</li>
         </ul>
-        
+
         <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-              <h1>Add Tasks</h1>
-          
-              <label for="task"><b>Task</b></label>
-              <input type="text" required>
-          
-              <button type="submit" class="btn"onclick="addItem()">Add</button>
-              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <form class="form-container">
+                <h1>Add Tasks</h1>
+
+                <label for="task"><b>Task</b></label>
+                <input id="myText" input type="text" required>
+
+                <button type="submit" class="btn" onclick="addItem()">Add</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
-          </div>
+        </div>
+        <div class="form-pop" id="1">
+            <form class="form-container">
+                <h1 id="mydiv"></h1>
+                <button type="button" class="btn cancel" onclick="closeTask(1)">Close</button>
+            </form>
+        </div>
+        <div class="form-pop" id="2">
+            <form class="form-container">
+                <h1 id="mydiv"></h1>
+                <button type="button" class="btn cancel" onclick="closeTask(2)">Close</button>
+            </form>
+        </div>
     </div>
 
 

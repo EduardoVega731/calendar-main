@@ -5,9 +5,16 @@ let need = 0;
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
+  function openTask(i) {
+    document.getElementById(i).style.display = "block";
+  }
+
   
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
+  }
+  function closeTask(i) {
+    document.getElementById(i).style.display = "none";
   }
 
 function listToScreen() {
@@ -19,7 +26,7 @@ function listToScreen() {
 }
 function addItem() {
     console.log('Add Item here');
-    let n = document.getElementById('Task');
+    let n = document.getElementById('myText');
     n = n.value;
     need++;
     myList.push({ name: n });

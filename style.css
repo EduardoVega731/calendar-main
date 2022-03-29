@@ -44,12 +44,6 @@ body {font-family: Verdana, sans-serif;}
 
 /* Month header */
 .month {
-  /* padding: 70px 25px;
-  background: #213ebd;
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin: -10px; */
   text-align: center;
   background-color: #0066A2;
   display: block;
@@ -91,45 +85,6 @@ body {font-family: Verdana, sans-serif;}
   cursor: pointer;
 }
 
-/*Weekdays (Mon-Sun)
-.weekdays {
-  display: block;
-  margin: 0;
-  padding: 10px;
-  background-color: rgb(116, 114, 114);
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: white;
-  text-align: center;
-} */
-
-
-/* Days (1-31) 
-.days {
-  display: block;
-  padding: 10px;
-  // background: rgb(112, 112, 112); 
-  background-color: #ddd;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.51%;
-  text-align: center;
-  font-size: 18px;
-  margin: 1px;
-  //color: rgb(255, 136, 0); 
-
-  border: .5px solid; 
-  line-height: 150px;
-} */
-
-/*Weekdays (Mon-Sun) */
 .weekdays,
 .days {
   display: grid;
@@ -195,6 +150,7 @@ body {font-family: Verdana, sans-serif;}
   font-size: 30px
   ;
 }
+
 .open-button {
   background-color: #555;
   color: white;
@@ -217,7 +173,14 @@ body {font-family: Verdana, sans-serif;}
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
-
+.form-pop {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
@@ -226,7 +189,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
