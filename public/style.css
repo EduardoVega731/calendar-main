@@ -95,6 +95,66 @@ body {font-family: Verdana, sans-serif;}
   grid-column: 3; /* sets the 1st day to be directly below corresponding weekday */
 }
 
+/* help tips */
+.help-tip{
+  position: absolute;
+  top: 220px;
+  right: 5px;
+  text-align: center;
+  background-color: rgb(255, 145, 1);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.help-tip:before{
+  content:'?';
+  font-weight: bold;
+  color: white;
+}
+
+.help-tip:hover p{
+  display:block;
+}
+
+.help-tip p{    /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: .94;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:7px solid transparent;
+  border-bottom-color:#1E2021;
+  right:10px;
+  top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  left:0;
+}
+
 .weekdays {
   margin: 0;
   padding: 10px;
@@ -190,7 +250,7 @@ body {font-family: Verdana, sans-serif;}
 
 /* Full-width input fields */
 .form-container input[type=text] {
-  width: 100%;
+  width: 90%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -224,3 +284,21 @@ body {font-family: Verdana, sans-serif;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+#mydiv {
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+/* when a task is added, the dot will appear on lower left corner of box of date */
+.circle {
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  border-radius: 50%;
+  opacity: .5;
+  display: flex;
+  padding: 0 3px 0;
+  right: 100px;
+}
+

@@ -96,9 +96,9 @@ function displayList() {
             i++;
         }
         h += '</ul>';
-        div.innerHTML = '<h1>Here is the List:</h1>' + h;
+        div.innerHTML = '' + h;
     } else {
-        div.innerHTML = '<h1> Enter something</h1>';
+        div.innerHTML = '<p>No tasks to display</p>';
     }
     console.log("Here is the html: ", h)
     let coun = document.getElementById("countUp");

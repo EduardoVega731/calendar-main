@@ -20,18 +20,11 @@ const currentMonthDays = new Date(year, month + 1, 0).getDate();
 
 // displays current month and year
 function setMonthYear() {
-    // console.log(currentMonthDays);
-    // console.log(year);
-    // console.log(day);
-
     currentMonth = document.getElementById("month");
     currentMonth.innerHTML = monthNames[month];
 
     currentYear = document.getElementById("year");
     currentYear.innerHTML = year;
-
-    currentDay = document.getElementsByClassName("currentDay");
-    currentDay.innerHTML = day;
 }
 
 
@@ -44,7 +37,7 @@ function filterDay() {
         listItems[i].firstElementChild.classList.remove('currentDay');
     }
     // adds currentDay class to li span
-    listItems[day - 1].firstElementChild.classList.add('currentDay');
+    listItems[day -1 ].firstElementChild.classList.add('currentDay');
 
 }
 
