@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -29,15 +29,14 @@
     </div>
     <div class="LoginYes">
         <!-- contents below-->
-        <header>
-            <div class="month">
-                <ul>
-                    <li class="prev">&#10094;</li>
-                    <li class="next">&#10095;</li>
-                    <li id="month"><br>
-                    <li id="year"></li>
-                </ul>
-            </div>
+        <div class="month">
+            <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li id="month"><br>
+                <li id="year"></li>
+            </ul>
+        </div>
         </header>
         <ul class="weekdays">
             <li>Sunday</li>
@@ -46,45 +45,67 @@
             <li>Wednesday</li>
             <li>Thursday</li>
             <li>Friday</li>
-            <li>Saturday</li> 
+            <li>Saturday</li>
         </ul>
-        <ul class="days">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li><span class="currentDay">15</span></li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <li>22</li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <li>29</li>
-            <li>31</li>
-        </ul>
-        <button onclick="renderCalendar()">Test</button>
-    </div>
 
-    
+        <ul id="days">
+            <li onclick="openTask(1), openForm(1)"><span>1</span></li>
+            <li onclick="openTask(2), openForm(2)"><span>2</span></li>
+            <li onclick="openForm()"><span>3</span></li>
+            <li onclick="openForm()"><span>4</span></li>
+            <li onclick="openForm()"><span>5</span></li>
+            <li onclick="openForm()"><span>6</span></li>
+            <li onclick="openForm()"><span>7</span></li>
+            <li onclick="openForm()"><span>8</span></li>
+            <li onclick="openForm()"><span>9</span></li>
+            <li onclick="openForm()"><span>10</span></li>
+            <li onclick="openForm()"><span>11</span></li>
+            <li onclick="openForm()"><span>12</span></li>
+            <li onclick="openForm()"><span>13</span></li>
+            <li onclick="openForm()"><span>14</span></li>
+            <li onclick="openForm()"><span>15</span></li>
+            <li onclick="openForm()"><span>16</span></li>
+            <li onclick="openForm()"><span>17</span></li>
+            <li onclick="openForm()"><span>18</span></li>
+            <li onclick="openForm()"><span>19</span></li>
+            <li onclick="openForm()"><span>20</span></li>
+            <li onclick="openForm()"><span>21</span></li>
+            <li onclick="openForm()"><span>22</span></li>
+            <li onclick="openForm()"><span>23</span></li>
+            <li onclick="openForm()"><span>24</span></li>
+            <li onclick="openForm()"><span>25</span></li>
+            <li onclick="openForm()"><span>26</span></li>
+            <li onclick="openForm()"><span>27</span></li>
+            <li onclick="openForm()"><span>28</span></li>
+            <li onclick="openForm()"><span>29</span></li>
+            <li onclick="openForm()"><span>30</span></li>
+            <li onclick="openForm()"><span>31</span></li>
+        </ul>
+
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <h1>Add Tasks</h1>
+
+                <label for="task"><b>Task</b></label>
+                <input id="myText" input type="text" required>
+
+                <button type="submit" class="btn" onclick="addItem()">Add</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+        <div class="form-pop" id="1">
+            <form class="form-container">
+                <h1 id="mydiv"></h1>
+                <button type="button" class="btn cancel" onclick="closeTask(1)">Close</button>
+            </form>
+        </div>
+        <div class="form-pop" id="2">
+            <form class="form-container">
+                <h1 id="mydiv"></h1>
+                <button type="button" class="btn cancel" onclick="closeTask(2)">Close</button>
+            </form>
+        </div>
+    </div>
 
     <!-- The core firebase JS SDK is always required and must be loaded first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
@@ -112,6 +133,7 @@
     <!-- for DB -->
     <!-- <script src="myFirebaseDB.js"></script> -->
     <script src="calendar.js"></script>
+    <script src="note.js"></script>
     <script>
         var myFirebase = new MyFirebase(user => setupUser(user));
     </script>

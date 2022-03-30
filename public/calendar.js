@@ -5,15 +5,10 @@ const monthNames = [
     "December"
 ];
 
-const daysOfWeek = [
-    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-    "Friday", "Saturday"
-]
-
-
 // https://www.w3schools.com/js/js_date_methods.asp
 
 const dte = new Date();
+// document.write("The current month is " + monthNames[d.getMonth()]);
 
 const day = dte.getDate();
 const month = dte.getMonth();
@@ -21,7 +16,7 @@ const year = dte.getFullYear();
 
 //https://www.w3resource.com/javascript-exercises/javascript-date-exercise-9.php
 // Finds number of days in current month
-var currentMonthDays = new Date(year, month + 1, 0).getDate();
+const currentMonthDays = new Date(year, month + 1, 0).getDate();
 
 // displays current month and year
 function setMonthYear() {
@@ -30,7 +25,7 @@ function setMonthYear() {
     // console.log(day);
 
     currentMonth = document.getElementById("month");
-    currentMonth.innerHTML = monthNames[`${month}`];
+    currentMonth.innerHTML = monthNames[month];
 
     currentYear = document.getElementById("year");
     currentYear.innerHTML = year;
@@ -39,13 +34,23 @@ function setMonthYear() {
     currentDay.innerHTML = day;
 }
 
-function renderCalendar() {
-    // finds where the first day of month starts on calendar position
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay
-    let start = new Date(year, month).getDay(); // for March... 2 / Tuesday
-    console.log(start);
+
+function filterDay() {
+    var ul = document.getElementById('days');
+    var listItems = ul.getElementsByTagName('li');
+
+    // remove currentDay class from previous days
+    for (let i = 0; i < listItems.length; i++) {
+        listItems[i].firstElementChild.classList.remove('currentDay');
+    }
+    // adds currentDay class to li span
+    listItems[day - 1].firstElementChild.classList.add('currentDay');
+
 }
 
+function load() {
+    setMonthYear();
+    filterDay();
+}
 
-
-this.document.onload = setMonthYear();
+this.document.onload = load();

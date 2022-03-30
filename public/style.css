@@ -44,12 +44,6 @@ body {font-family: Verdana, sans-serif;}
 
 /* Month header */
 .month {
-  /* padding: 70px 25px;
-  background: #213ebd;
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin: -10px; */
   text-align: center;
   background-color: #0066A2;
   display: block;
@@ -91,52 +85,13 @@ body {font-family: Verdana, sans-serif;}
   cursor: pointer;
 }
 
-/*Weekdays (Mon-Sun)
-.weekdays {
-  display: block;
-  margin: 0;
-  padding: 10px;
-  background-color: rgb(116, 114, 114);
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: white;
-  text-align: center;
-} */
-
-
-/* Days (1-31) 
-.days {
-  display: block;
-  padding: 10px;
-  // background: rgb(112, 112, 112); 
-  background-color: #ddd;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.51%;
-  text-align: center;
-  font-size: 18px;
-  margin: 1px;
-  //color: rgb(255, 136, 0); 
-
-  border: .5px solid; 
-  line-height: 150px;
-} */
-
-/*Weekdays (Mon-Sun) */
 .weekdays,
-.days {
+#days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.days li:first-child {
+#days li:first-child {
   grid-column: 3; /* sets the 1st day to be directly below corresponding weekday */
 }
 
@@ -152,18 +107,18 @@ body {font-family: Verdana, sans-serif;}
   text-align: center;
 }
 /* Days (1-31) */
-.days {
+#days {
   padding: 10px;
   background-color: white;
   margin: 0;
 }
 
-.days li {
+#days li {
   list-style-type: none;
   display: inline-block;
-  text-align: center;
   font-size: 18px;
   margin: 1px;
+  text-align: center;
   /*color: rgb(255, 136, 0); */
 
   border: .5px solid; 
@@ -182,7 +137,7 @@ body {font-family: Verdana, sans-serif;}
   padding: 5px;
 }
 
-.days li:hover{
+#days li:hover{
   color: white;
   background-color: #0066A2;
   font-weight: bolder;
@@ -192,8 +147,80 @@ body {font-family: Verdana, sans-serif;}
 }
 
 #spec {
-  font-size: 30px;
+  font-size: 30px
+  ;
 }
 
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 40px;
+  left: 28px;
+  width: 250px;
+}
 
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-pop {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
 
+/* Full-width input fields */
+.form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
