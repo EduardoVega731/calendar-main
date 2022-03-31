@@ -1,6 +1,5 @@
 let myList = [];
-let comp = 0;
-let need = 0;
+
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -17,31 +16,24 @@ function closeTask(i) {
     document.getElementById(i).style.display = "none";
 }
 
-function listToScreen() {
-    let c = "";
-    for (let l of myList) {
-        c += `<li>${l.text}</li>\r\n`;
-    }
-    document.getElementById("List1").innerHTML = c;
-}
 function addItem() {
     console.log('Add Item here');
     let n = document.getElementById('myText');
     n = n.value;
-    need++;
-    myList.push({ name: n });
+    // need++;
+    myList.push({ name: n, done: false });
+
     save();
+    load();
     displayList();
 }
 function load() {
     const t = localStorage.getItem('TODO');
-    const update = localStorage.getItem('Count')
-    const k = localStorage.getItem('need')
+    
     let o = JSON.parse(t);
     if (o == null) o = [];
     myList = o;
-    comp = update;
-    need = k;
+   
     displayList();
     if (!flag) {
         flag = true;
@@ -57,30 +49,37 @@ function load() {
 function clearItem() {
     myList.splice(0, myList.length);
     console.log("working");
-    comp = 0;
-    need = 0;
+    // comp = 0;
+    // need = 0;
     save();
+
     displayList();
 }
 function remove(i) {
     myList.splice(i, 1);
-    need--;
+    // need--;
     save();
+    load();
     displayList();
 }
 function done(i) {
-    comp++;
-    need--;
-    myList[i].name += ' -DONE';
+    let text = document.getElementsByClassName("text");
+    let checkboxes = document.getElementsByClassName('todo-item')
+    // https://www.designcise.com/web/tutorial/how-to-toggle-a-checkbox-using-javascript
+    myList[i].done = checkboxes[i].checked
+
+    // condition ? true : false
+    text[i].style.color = checkboxes[i].checked ? "green" : "red";
+    text[i].style.textDecoration = checkboxes[i].checked ? "line-through" : "none";
+
     save();
-    displayList();
 }
 function save() {
     const t = JSON.stringify(myList);
     localStorage.setItem('TODO', t);
-    localStorage.setItem('Count', comp);
-    localStorage.setItem('need', need);
-    setData('/default', myList);
+    // localStorage.setItem('Count', comp);
+    // localStorage.setItem('need', need);
+    // setData('/default', myList);
 }
 function displayList() {
     let div = document.getElementById('mydiv');
@@ -92,8 +91,13 @@ function displayList() {
         i = 0;
         for (let li of myList) {
             console.log(li.name);
-            h += '<li>' + li.name + " " + " " + '<button onclick="done(' + i + ')">do</button>' + " " + " " + '<button onclick="remove(' + i + ')">X</button>' + '</li>\r\n';
-            i++;
+            // h += '<li>' + li.name + " " + " " + '<button onclick="done(' + i + ')">do</button>' + " " + " " + '<button onclick="remove(' + i + ')">X</button>' + '</li>\r\n';
+            // i++;
+            h +=
+                `<li class="text" style="color:${li.done ? "green" : "red"}; text-decoration: ${li.done ? "line-through" : "none"};"> <input class="todo-item" type="checkbox" id="don-btn" onclick="done(${i})" ${li.done ? "checked" : ""}>`
+                + li.name +
+                `<span class="del-btn" onclick="remove(${i})">&#9003</span>
+            </li> `;
         }
         h += '</ul>';
         div.innerHTML = '' + h;
@@ -101,10 +105,15 @@ function displayList() {
         div.innerHTML = '<p>No tasks to display</p>';
     }
     console.log("Here is the html: ", h)
-    let coun = document.getElementById("countUp");
-    coun.innerHTML = need;
-    let down = document.getElementById("countDown");
-    down.innerHTML = comp;
+    // let coun = document.getElementById("countUp");
+    // coun.innerHTML = need;
+    // let down = document.getElementById("countDown");
+    // down.innerHTML = comp;
 }
 
-this.document.onload = load();
+function onload(){
+    load();
+    displayList();
+}
+
+this.document.onload = onload();
