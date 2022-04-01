@@ -92,7 +92,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 #days li:first-child {
-  grid-column: 3; /* sets the 1st day to be directly below corresponding weekday */
+  grid-column: 6; /* sets the 1st day to be directly below corresponding weekday */
 }
 
 /* help tips */
