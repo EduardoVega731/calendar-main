@@ -56,61 +56,54 @@
         </ul>
 
         <ul id="days">
-            <li onclick="openForm(1), openTask(1)"><span>1</span></li>
-            <li onclick="openForm(2), openTask(2)"><span>2</span></li>
-            <li onclick="openForm()"><span>3</span></li>
-            <li onclick="openForm()"><span>4</span></li>
-            <li onclick="openForm()"><span>5</span></li>
-            <li onclick="openForm()"><span>6</span></li>
-            <li onclick="openForm()"><span>7</span></li>
-            <li onclick="openForm()"><span>8</span></li>
-            <li onclick="openForm()"><span>9</span></li>
-            <li onclick="openForm()"><span>10</span></li>
-            <li onclick="openForm()"><span>11</span></li>
-            <li onclick="openForm()"><span>12</span></li>
-            <li onclick="openForm()"><span>13</span></li>
-            <li onclick="openForm()"><span>14</span></li>
-            <li onclick="openForm()"><span>15</span></li>
-            <li onclick="openForm()"><span>16</span></li>
-            <li onclick="openForm()"><span>17</span></li>
-            <li onclick="openForm()"><span>18</span></li>
-            <li onclick="openForm()"><span>19</span></li>
-            <li onclick="openForm()"><span>20</span></li>
-            <li onclick="openForm()"><span>21</span></li>
-            <li onclick="openForm()"><span>22</span></li>
-            <li onclick="openForm()"><span>23</span></li>
-            <li onclick="openForm()"><span>24</span></li>
-            <li onclick="openForm()"><span>25</span></li>
-            <li onclick="openForm()"><span>26</span></li>
-            <li onclick="openForm()"><span>27</span></li>
-            <li onclick="openForm()"><span>28</span></li>
-            <li onclick="openForm()"><span>29</span></li>
-            <li onclick="openForm()"><span>30</span></li>
-            <li onclick="openForm()"><span>31</span></li>
+            <li onclick="openForm(), openTask(), setDay(1)"><span>1</span></li>
+            <li onclick="openForm(), openTask(), setDay(2)"><span>2</span></li>
+            <li onclick="openForm(), openTask(), setDay(3)"><span>3</span></li>
+            <li onclick="openForm(), openTask(), setDay(4)"><span>4</span></li>
+            <li onclick="openForm(), openTask(), setDay(5)"><span>5</span></li>
+            <li onclick="openForm(), openTask(), setDay(6)"><span>6</span></li>
+            <li onclick="openForm(), openTask(), setDay(7)"><span>7</span></li>
+            <li onclick="openForm(), openTask(), setDay(8)"><span>8</span></li>
+            <li onclick="openForm(), openTask(), setDay(9)"><span>9</span></li>
+            <li onclick="openForm(), openTask(), setDay(10)"><span>10</span></li>
+            <li onclick="openForm(), openTask(), setDay(11)"><span>11</span></li>
+            <li onclick="openForm(), openTask(), setDay(12)"><span>12</span></li>
+            <li onclick="openForm(), openTask(), setDay(13)"><span>13</span></li>
+            <li onclick="openForm(), openTask(), setDay(14)"><span>14</span></li>
+            <li onclick="openForm(), openTask(), setDay(15)"><span>15</span></li>
+            <li onclick="openForm(), openTask(), setDay(16)"><span>16</span></li>
+            <li onclick="openForm(), openTask(), setDay(17)"><span>17</span></li>
+            <li onclick="openForm(), openTask(), setDay(18)"><span>18</span></li>
+            <li onclick="openForm(), openTask(), setDay(19)"><span>19</span></li>
+            <li onclick="openForm(), openTask(), setDay(20)"><span>20</span></li>
+            <li onclick="openForm(), openTask(), setDay(21)"><span>21</span></li>
+            <li onclick="openForm(), openTask(), setDay(22)"><span>22</span></li>
+            <li onclick="openForm(), openTask(), setDay(23)"><span>23</span></li>
+            <li onclick="openForm(), openTask(), setDay(24)"><span>24</span></li>
+            <li onclick="openForm(), openTask(), setDay(25)"><span>25</span></li>
+            <li onclick="openForm(), openTask(), setDay(26)"><span>26</span></li>
+            <li onclick="openForm(), openTask(), setDay(27)"><span>27</span></li>
+            <li onclick="openForm(), openTask(), setDay(28)"><span>28</span></li>
+            <li onclick="openForm(), openTask(), setDay(29)"><span>29</span></li>
+            <li onclick="openForm(), openTask(), setDay(30)"><span>30</span></li>
+            <li onclick="openForm(), openTask(), setDay(31)"><span>31</span></li>
         </ul>
 
         <div class="form-popup" id="myForm">
-            <form class="form-container">
+            <div class="form-container">
                 <h1>Add Tasks</h1>
 
                 <label for="task"><b>Task</b></label>
-                <input id="myText" input type="text" required>
+                <input id="myText" type="text" required>
 
                 <button type="submit" class="btn" onclick="addItem()">Add</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
         </div>
-        <div class="form-pop" id="1">
-            <form class="form-container">
+        <div class="form-pop" id="tasks">
+            <div class="form-container">
                 <h1 id="mydiv"></h1>
-                <button type="button" class="btn cancel" onclick="closeTask(1)">Close</button>
-            </form>
-        </div>
-        <div class="form-pop" id="2">
-            <form class="form-container">
-                <h1 id="mydiv"></h1>
-                <button type="button" class="btn cancel" onclick="closeTask(2)">Close</button>
-            </form>
+                <button type="button" class="btn cancel" onclick="closeTask()">Close</button>
+            </div>
         </div>
     </div>
 

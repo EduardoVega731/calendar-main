@@ -1,39 +1,59 @@
-let myList = [];
+let ul = document.getElementById('days');
+let listItems = ul.getElementsByTagName('li');
+let currentDay = -1;
 
+let myList = new Array(32);
+for (var i = 0; i < myList.length; i++) {
+    myList[i] = [];
+}
+
+function setDay(day) {
+    if (currentDay != -1) {
+        listItems[currentDay-1].className = "";
+    }
+   
+    currentDay = day
+    listItems[currentDay-1].className= "activeDay";
+    displayList();
+}
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
-function openTask(i) {
-    document.getElementById(i).style.display = "block";
+function openTask() {
+    document.getElementById("tasks").style.display = "block";
 }
 
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
-function closeTask(i) {
-    document.getElementById(i).style.display = "none";
+
+function closeTask() {
+    document.getElementById("tasks").style.display = "none";
 }
 
 function addItem() {
     console.log('Add Item here');
     let n = document.getElementById('myText');
     n = n.value;
-    // need++;
-    myList.push({ name: n, done: false });
 
+    console.log(currentDay);
+    myList[currentDay - 1].push({name: n, done: false});
+
+    console.log(myList);
     save();
-    load();
+    // load();
     displayList();
 }
+
 function load() {
     const t = localStorage.getItem('TODO');
-    
+
     let o = JSON.parse(t);
     if (o == null) o = [];
     myList = o;
-   
+
     displayList();
     if (!flag) {
         flag = true;
@@ -46,27 +66,21 @@ function load() {
     }
 }
 
-function clearItem() {
-    myList.splice(0, myList.length);
-    console.log("working");
-    // comp = 0;
-    // need = 0;
-    save();
-
-    displayList();
-}
 function remove(i) {
-    myList.splice(i, 1);
-    // need--;
+    myList[currentDay-1].splice(i, 1);
+
+
     save();
     load();
     displayList();
 }
+
 function done(i) {
     let text = document.getElementsByClassName("text");
+    console.log(text);
     let checkboxes = document.getElementsByClassName('todo-item')
     // https://www.designcise.com/web/tutorial/how-to-toggle-a-checkbox-using-javascript
-    myList[i].done = checkboxes[i].checked
+    myList[currentDay-1][i].done = checkboxes[i].checked
 
     // condition ? true : false
     text[i].style.color = checkboxes[i].checked ? "green" : "red";
@@ -74,44 +88,37 @@ function done(i) {
 
     save();
 }
+
 function save() {
     const t = JSON.stringify(myList);
     localStorage.setItem('TODO', t);
-    // localStorage.setItem('Count', comp);
-    // localStorage.setItem('need', need);
     // setData('/default', myList);
 }
+
 function displayList() {
     let div = document.getElementById('mydiv');
     let h = '';
-    if (myList && myList.length) {
+    if (myList[currentDay-1] && myList[currentDay-1].length) {
         h = '<ul>\r\n';
 
         console.log(myList)
         i = 0;
-        for (let li of myList) {
-            console.log(li.name);
-            // h += '<li>' + li.name + " " + " " + '<button onclick="done(' + i + ')">do</button>' + " " + " " + '<button onclick="remove(' + i + ')">X</button>' + '</li>\r\n';
-            // i++;
+        for (let li of myList[currentDay-1]) {
             h +=
                 `<li class="text" style="color:${li.done ? "green" : "red"}; text-decoration: ${li.done ? "line-through" : "none"};"> <input class="todo-item" type="checkbox" id="don-btn" onclick="done(${i})" ${li.done ? "checked" : ""}>`
                 + li.name +
                 `<span class="del-btn" onclick="remove(${i})">&#9003</span>
             </li> `;
+            i++;
         }
         h += '</ul>';
-        div.innerHTML = '' + h;
+        div.innerHTML = 'Tasks:' + h;
     } else {
         div.innerHTML = '<p>No tasks to display</p>';
     }
-    console.log("Here is the html: ", h)
-    // let coun = document.getElementById("countUp");
-    // coun.innerHTML = need;
-    // let down = document.getElementById("countDown");
-    // down.innerHTML = comp;
 }
 
-function onload(){
+function onload() {
     load();
     displayList();
 }

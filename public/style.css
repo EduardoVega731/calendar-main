@@ -70,14 +70,14 @@ body {font-family: Verdana, sans-serif;}
 .month .prev {
   float: left;
   padding-top: 10px;
-  /* padding-right: 30px; */
+  
 }
 
 /* Next button */
 .month .next {
   float: right;
   padding-top: 10px;
-  /* padding-right: 30px; */
+
 }
 
 .prev:hover, .next:hover{
@@ -206,6 +206,15 @@ body {font-family: Verdana, sans-serif;}
   cursor: pointer;
 }
 
+.activeDay{
+  color: white;
+  background-color: #00a251;
+  font-weight: bolder;
+  font-size: 20px;
+  border: 2px solid;
+  cursor: pointer;
+}
+
 #spec {
   font-size: 30px
   ;
@@ -289,16 +298,3 @@ body {font-family: Verdana, sans-serif;}
   font-weight: lighter;
   font-size: 24px;
 }
-
-/* when a task is added, the dot will appear on lower left corner of box of date */
-.circle {
-  height: 20px;
-  width: 20px;
-  background-color: black;
-  border-radius: 50%;
-  opacity: .5;
-  display: flex;
-  padding: 0 3px 0;
-  right: 100px;
-}
-

@@ -29,16 +29,15 @@ function setMonthYear() {
 
 
 function filterDay() {
-    var ul = document.getElementById('days');
-    var listItems = ul.getElementsByTagName('li');
+    let ul = document.getElementById('days');
+    let listItems = ul.getElementsByTagName('li');
 
     // remove currentDay class from previous days
     for (let i = 0; i < listItems.length; i++) {
         listItems[i].firstElementChild.classList.remove('currentDay');
     }
     // adds currentDay class to li span
-    listItems[day -1 ].firstElementChild.classList.add('currentDay');
-
+    listItems[day-1].firstElementChild.classList.add('currentDay');
 }
 
 function load() {
